@@ -1,0 +1,23 @@
+isPalindrome :: (Eq a ) => [a] -> Bool 
+isPalindrome [] = error "Empty list"
+isPalindrome xs = if xs == (reverse xs)  
+				  then True 	
+				  else False 
+				  
+----------------------------------------------------------------------------------
+				  
+shortest :: [[a]] -> [a]
+shortest [] = []
+shortest [x] = x
+shortest (x:xs) = if length x < length (shortest xs)
+				  then x 
+				  else shortest xs 
+
+----------------------------------------------------------------------------------
+				  
+type Poly = [Float]
+addPolys :: Poly -> Poly -> Poly 
+addPolys [] p = p
+addPolys p [] = p 
+addPolys (x:xs) (y:ys) = (x+y): (addPolys xs ys) 
+
